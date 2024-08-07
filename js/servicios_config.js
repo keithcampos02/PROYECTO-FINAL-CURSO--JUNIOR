@@ -10,8 +10,8 @@ let url = "/js/Configuraciones.json"
 if (response.status == "200") {
     const data = await response.json();
 
-        console.log(data);
-
+        console.table(data);
+           return data
     
 }else{
     console.log("error al consultar el api"+response.status)

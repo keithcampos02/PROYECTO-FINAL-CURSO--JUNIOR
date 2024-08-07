@@ -1,15 +1,25 @@
-export function MostrarHTML() {
-    //
-    let navbar = document.getElementById("Navbar").innerHTML= CrearNavbar();
-    let footer= document.getElementById("Footer").innerHTML= CrearFooter();
+import { ObtenerDatosDeConfiguracion } from "/js/servicios_config.js"
 
-    
-    
+export async function MostrarHTML() {
+    const Datos = await ObtenerDatosDeConfiguracion()
+
+    if (Datos) {
+
+        let navbar = document.getElementById("Navbar").innerHTML = CrearNavbar(Datos.navbar);
+        let footer = document.getElementById("Footer").innerHTML = CrearFooter(Datos.footer);
+
+    }
+
+    //
+
+
+
+
 }
 
 //1-Navbar
 
-const CrearNavbar=()=> {
+const CrearNavbar = (data) => {
     let html = `
      <a class="navbar-brand" href="#">
         <img src="img/1-Logo.png" alt="Logo NoticiasTecnológicas" class="navegacion-principal__marca">
@@ -19,25 +29,25 @@ const CrearNavbar=()=> {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="ListaNavbar">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#Noticias">Noticias</a></li>
-          <li class="nav-item"><a class="nav-link" href="#Banner1">Banner1</a></li>
-          <li class="nav-item"><a class="nav-link" href="#Banner2">Banner2</a></li>
-         
-        </ul>
+        <ul class="navbar-nav mr-auto"> `
+
+    data.forEach(element => {
+        html += `<li class="${element.claseDeCss}"><a class="nav-link" href="${element.enlace}>Inicio</a></li>`
+    });
+
+    html += `  </ul>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-search"></i></a></li>
         </ul>
-      </div>
+      </div>`
 
-    `
+
 
     return html
 }
 
 //2- Footer
-const CrearFooter=()=> {
+const CrearFooter = (data) => {
 
     let html = `
     

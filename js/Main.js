@@ -1,8 +1,8 @@
-import { MostrarHTML } from "/js/CrearHTML.js"
-import { MostarDatosEnConsola } from "/js/ConsultarJson.js"
+import { MostrarHTML } from "/js/global.js"
+import {ObtenerDatosDeConfiguracion} from "/js/servicios_config"
 ///Componentes ->
 document.addEventListener('DOMContentLoaded', ev => {
     MostrarHTML()
-    MostarDatosEnConsola()
+    ObtenerDatosDeConfiguracion()
 })
 

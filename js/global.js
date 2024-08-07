@@ -32,7 +32,8 @@ const CrearNavbar = (data) => {
         <ul class="navbar-nav mr-auto"> `
 
     data.forEach(element => {
-        html += `<li class="${element.claseDeCss}"><a class="nav-link" href="${element.enlace}>Inicio</a></li>`
+       
+        html += `<li class="${element.claseDeCss}"><a class="nav-link" href="${element.enlace}"></a>${element.nombre}</li>`
     });
 
     html += `  </ul>

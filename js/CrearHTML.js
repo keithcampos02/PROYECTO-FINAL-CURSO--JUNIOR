@@ -12,7 +12,7 @@ export function MostrarHTML() {
 
 //1-Navbar
 
-function CrearNavbar() {
+const CrearNavbar=()=> {
     let html = `
      <a class="navbar-brand" href="#">
         <img src="img/1-Logo.png" alt="Logo NoticiasTecnológicas" class="navegacion-principal__marca">
@@ -40,7 +40,7 @@ function CrearNavbar() {
 }
 
 //2- Footer
-function CrearFooter() {
+const CrearFooter=()=> {
 
     let html = `
     
@@ -59,7 +59,7 @@ function CrearFooter() {
 }
 
 //Main -Secciones 1 Noticias 
-function CrearTarjetaNoticias() {
+const CrearTarjetaNoticias=()=> {
     let html = `
 
      <section class=" banner  col-lg-4 ">
@@ -78,10 +78,12 @@ function CrearTarjetaNoticias() {
     return html
 }
 
-function CrearParrafo(){
+const CrearParrafo =()=>{
     let texto = "Genesis"
     
     let html =`<p>${texto} </p>`
 
     return html;
 }
+
+

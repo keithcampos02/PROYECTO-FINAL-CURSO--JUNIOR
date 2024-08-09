@@ -1,46 +1,38 @@
-export function Mostrartabla() {
-    let table = document.getElementById ("Tabla").innerHTML = Creartabla ()
-}
+import {  } from "/js/Servicios_Config.js"
 
+//Variables Globales 
+let respuesta = []
 
-function Creartabla() {
-    let html = `
-    
-    <section class="tabla ">
-          <div class="container">
+// Mostrar Componente  al cargar la página DOMContentLoaded
+export const MostrarTabla = async () => {
+    respuesta = await a(); // Recibe Datos del API
+      
+       //Crea el Componente
+  };
+  
 
-            <!-- b4-form-inline
-          b4-form-group -->
-            <h2>Tabla Datos</h2>
-            <table class="table table-striped table-inverse table-responsive container col-6 text-white" >
-
-
-            <thead class="thead-inverse">
-                <tr>
-                  <th>Id</th>
-                  <th>Nombre</th>
-                 
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>asas</td>
-                  <td>asas</td>
-                 
-                </tr>
-                 
-              </tbody>
-
-
-
-            
-            </table>
-          </div>  
-    </section>
-    
-    
-    `
-
-    return html
-}
+const CrearTabla = (datos) => {
+    let html = "";
+  
+    datos.forEach(element => {
+      html += `
+        <tr>
+          <td>${element.id}</td>
+          <td>${element.name}</td>
+          <td><img src="${element.image}" class="card-img-top" alt="..."></td>
+          <td>
+           <div class="btn-group" role="group" style="gap: 5px">
+              <a class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> Ver</a>
+              <a class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Editar</a>
+              <a class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Eliminar</a>
+            </div>
+          </td>
+        </tr>
+      `;
+    });
+  
+    document.getElementById('').innerHTML = html;
+  
+    return html;
+  };
+  
